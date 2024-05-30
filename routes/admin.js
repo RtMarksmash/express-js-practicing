@@ -1,17 +1,15 @@
 const express = require('express');
-
+const path = require('path');
 const router = express.Router();
+const rootPath = require('../util/path');
 
 router.get('/add-products', (req, res) => {
-    res.send('<form action="/products" method="POST"><input type="text" name="title" ></input><button type="submit" >enviar</button></form>')
-
+    res.sendFile(path.join(rootPath, 'views', 'add-product.html'))
 });
 
-router.post('/products', (req, res) => {
+router.post('/add-products', (req, res) => {
     console.log(req.body)
     res.redirect('/');
 });
-
-
 
 module.exports = router;
