@@ -3,6 +3,7 @@ const path = require('path');
 const router = express.Router()
 const rootPath = require('../util/path');
 
+const products = [];
 
 router.get('/add-products', (req, res) => {
     res.sendFile(path.join(rootPath, 'views', 'add-product.html'))
@@ -10,8 +11,11 @@ router.get('/add-products', (req, res) => {
 
 
 router.post('/add-products', (req, res) => {
-    console.log(req.body)
+    products.push({ title: req.body.title })
     res.redirect('/');
 });
 
-module.exports = router;
+module.exports = {
+    products,
+    router
+}
