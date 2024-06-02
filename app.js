@@ -6,9 +6,11 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const path = require('path');
 const rootPath = require('./util/path');
+const handlebars = require('express-handlebars');
 
 
-app.set('view engine', 'pug');
+app.engine('hbs', handlebars());
+app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
