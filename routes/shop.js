@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
         productCSS: true,
         activeShop: true,
         activeAddProduct: true
-
     })
 })
 
