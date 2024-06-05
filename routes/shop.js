@@ -7,7 +7,17 @@ const adminData = require('./admin')
 
 router.get('/', (req, res) => {
     const products = adminData.products
-    res.render('shop', { prods: products, pageTitle: 'shop', path: '/', hasProduct: products.length > 0 })
+    res.render('shop', {
+        prods: products,
+        pageTitle: 'shop',
+        path: '/',
+        hasProduct: products.length > 0,
+        formsCSS: true,
+        productCSS: true,
+        activeShop: true,
+        activeAddProduct: true
+
+    })
 })
 
 
