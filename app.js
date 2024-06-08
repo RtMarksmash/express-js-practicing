@@ -4,9 +4,10 @@ const bodyParser = require('body-parser');
 const config = require('./config');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const controllerError = require('./controller/error')
 const path = require('path');
-const rootPath = require('./util/path');
-const handlebars = require('express-handlebars');
+
+
 
 
 //(app.engine('hbs', handlebars({ layoutsDir: '/views/layouts/', defaultLayout: 'main-layout', extname: 'hbs' }));
@@ -17,13 +18,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')))
 
 
-app.use('/admin', adminRoutes.router);
+app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
 
-app.use((req, res, next) => {
-    res.status(404).render('404', { pageTitle: 'page not found' })
-});
+app.use(controllerError.error404);
 
 
 app.listen(config.port, () => {
