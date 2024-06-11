@@ -21,8 +21,11 @@ const getProductsFromFile = (cb) => {
 
 
 class Product {
-    constructor(t) {
-        this.title = t
+    constructor(Title, imageUrl, price, description) {
+        this.title = Title,
+            this.imageUrl = imageUrl,
+            this.price = price,
+            this.description = description
     };
 
 
