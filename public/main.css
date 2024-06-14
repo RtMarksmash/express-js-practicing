@@ -39,6 +39,14 @@
       padding: 0;
   }
   
+  .centered {
+      text-align: center;
+  }
+  
+  .centered img {
+      width: 400px;
+  }
+  
   .main-header__item a {
       text-decoration: none;
       color: white;
@@ -84,12 +92,16 @@
   
   .card__actions {
       padding: 1rem;
+      display: flex;
+      justify-content: center;
       text-align: center;
   }
   
   .card__actions button,
   .card__actions a {
+      text-decoration: none;
       margin: 0 0.25rem;
+      padding: 0.3rem;
   }
   
   .btn {
